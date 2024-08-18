@@ -1,12 +1,12 @@
-#simply run python3 AWS_srt_to_transcript <filename>
+#simply run python3 AWS_srt_to_transcript <input> <output>
 
 
 
 import sys
-filepath = "lupoInitialBrief.srt"
+filepath = sys.argv[1]
 f = open(filepath, 'r')
 input = f.readlines()
-output_path = sys.argv[1]
+output_path = sys.argv[2]
 f.close()
 output = ""
 
@@ -25,6 +25,6 @@ while i < len(input):
     i = i + 4
 
 print(output)
-o = open(output_path + ".txt", "w")
+o = open(output_path, "w")
 o.write(output)
 o.close()
